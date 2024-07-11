@@ -1,0 +1,29 @@
+apiVersion: skaffold/v4beta1
+kind: Config
+metadata:
+  name: akeyless-oidc-example
+build:
+  artifacts:
+    - image: devorbitus/oidc-example
+      custom:
+        buildCommand: ./custom-build.sh
+        dependencies:
+          dockerfile:
+            path: ./Dockerfile
+
+      hooks:
+        before:
+          - command:
+              - npm
+              - run
+              - build
+  tagPolicy:
+    gitCommit: {}
+
+deploy:
+  kubectl: {}
+
+manifests:
+  kustomize:
+    paths:
+      - .

@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+  name: oidc-example-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: oidc.cg.cs.akeyless.fans
+      http:
+        paths:
+          - pathType: Prefix
+            backend:
+              service:
+                name: oidc-example-service
+                port:
+                  number: 80
+            path: /
+  tls: # < placing a host in the TLS config will indicate a cert should be created
+    - hosts:
+        - oidc.cg.cs.akeyless.fans
+      secretName: oidc-example-tls # < cert-manager will store the created certificate in this secret.

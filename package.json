@@ -2,7 +2,6 @@
     "name": "akeyless-oidc-identity-provider-example",
     "version": "0.1.0",
     "private": true,
-    "homepage": "https://akeyless-community.github.io/akeyless-oidc-identity-provider-example",
     "dependencies": {
         "@testing-library/jest-dom": "^5.17.0",
         "@testing-library/react": "^13.4.0",
