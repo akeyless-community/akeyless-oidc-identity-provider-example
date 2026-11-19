@@ -1,6 +1,6 @@
-// src/CallbackComponent.js
+// src/CallbackComponent.jsx
 import React, { useEffect, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 import { AuthContext } from 'react-oauth2-code-pkce';
 
 function CallbackComponent() {
