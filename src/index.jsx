@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import CallbackComponent from './CallbackComponent.js';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import CallbackComponent from './CallbackComponent';
+import { BrowserRouter as Router, Route, Routes } from 'react-router';
 import { AuthProvider } from 'react-oauth2-code-pkce';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -36,7 +36,7 @@ root.render(
         <AuthProvider authConfig={authConfig}>
             <Router>
                 <Routes>
-                    <Route exact path="/" element={<div className="container"><App /></div>} />
+                    <Route path="/" element={<div className="container"><App /></div>} />
                     <Route path="/callback" element={<CallbackComponent />} />
                 </Routes>
             </Router>
